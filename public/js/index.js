@@ -15,7 +15,7 @@ socket.on('newMessage', function(message) {
 
 function createMessage(text) {
   socket.emit('createMessage', {
-    from: 'newEmail',
+    from: 'me',
     text: text
   });
 }
