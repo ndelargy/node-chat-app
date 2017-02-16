@@ -10,7 +10,9 @@ socket.on('disconnect', function () {
 });
 
 socket.on('newMessage', function(message) {
-  console.log(message);
+  var li = jQuery('<li></li>');
+  li.text(`${message.from}: ${message.text}`);
+  jQuery('#messages').append(li);
 });
 
 function createMessage(text) {
@@ -19,3 +21,15 @@ function createMessage(text) {
     text: text
   });
 }
+
+jQuery('#message-form').on('submit', function(e) {
+  e.preventDefault();
+  socket.emit('createMessage', {
+    from: 'User',
+    text: jQuery('[name="message"]').val()
+  }, function(message) {
+    var li = jQuery('<li></li>');
+    li.text(`Me: ${message.text}`);
+    jQuery('#messages').append(li);
+  });
+});
