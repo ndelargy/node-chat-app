@@ -26,9 +26,10 @@ io.on('connection', (socket) => {
     console.log('Client disconnected.');
   });
 
-  socket.on('createMessage', (message) => {
+  socket.on('createMessage', (message, callback) => {
     console.log(message);
     socket.broadcast.emit('newMessage', generateMessage(message.from, message.text));
+    callback();
   });
 
   socket.on('createLocationMessage', (coords) => {

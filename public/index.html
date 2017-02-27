@@ -1,27 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="/css/styles.css" />
 </head>
 
-<body>
-<p>Welcome to the chat app baby</p>
+<body class="chat">
+  <div class="chat__sidebar">
+    <h3>Peoplez</h3>
+    <div id="users"></div>
+  </div>
 
-<ol id="messages"></ol>
+  <div class="chat__main">
+    <ol id="messages" class="chat__messages"></ol>
 
-<form id="message-form">
-  <textarea name="message" placeholder="Type youre message here..."></textarea>
-  <br />
-  <button>Send</button>
-</form>
-<button id="send-location">Send Location</button>
+    <div class="chat__footer">
+      <form id="message-form">
+        <input name="message" 
+        placeholder="Type youre message here..."
+        autofocus
+        autocomplete="off"/>
+        <br />
+        <button>Send</button>
+      </form>
+      <button id="send-location">Send Location</button>
+    </div>
 
-
-<script src="/socket.io/socket.io.js"></script>
-<script src="https://code.jquery.com/jquery-3.1.1.js"
-  integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
-  crossorigin="anonymous"></script>
-<script src="/js/index.js"></script>
-
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.js"
+    integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
+    crossorigin="anonymous"></script>
+    <script src="/js/index.js"></script>
+  </div>
 </body>
 </html>
