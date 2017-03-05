@@ -56,7 +56,7 @@ jQuery('#message-form').on('submit', function(e) {
     var template = jQuery('#message-template').html();
     var html = Mustache.render(template, {
       from: 'Me',
-      text: message.text,
+      text: messageInput.val(),
       formattedTime: getFormattedTime(message.createdAt)
     });
 
