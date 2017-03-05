@@ -59,7 +59,7 @@ jQuery('#message-form').on('submit', function(e) {
       text: messageInput.val(),
       formattedTime: getFormattedTime()
     });
-
+    jQuery('#messages').append(html);
     messageInput.val('');
   });
 });
