@@ -57,7 +57,7 @@ jQuery('#message-form').on('submit', function(e) {
     var html = Mustache.render(template, {
       from: 'Me',
       text: messageInput.val(),
-      formattedTime: getFormattedTime(message.createdAt)
+      formattedTime: getFormattedTime()
     });
 
     messageInput.val('');
