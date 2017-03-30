@@ -67,13 +67,6 @@ socket.on('newLocationMessage', function(message) {
   scrollToBottom();
 });
 
-function createMessage(text) {
-  socket.emit('createMessage', {
-    from: 'me',
-    text: text
-  });
-}
-
 function getFormattedTime(time) {
   if (time) {
     return moment(time).format('h:mm a');
@@ -86,7 +79,6 @@ jQuery('#message-form').on('submit', function(e) {
   var messageInput = jQuery('[name="message"]');
   var messageText = messageInput.val();
   socket.emit('createMessage', {
-    from: 'User',
     text: messageInput.val()
   }, function() {
     var template = jQuery('#message-template').html();
